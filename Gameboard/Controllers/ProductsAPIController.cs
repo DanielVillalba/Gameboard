@@ -16,16 +16,10 @@ namespace Gameboard.Controllers
 {
     public class ProductsAPIController : ApiController
     {
-
-        //[DefaultConstructor]
-        public ProductsAPIController()
+        IRepository<Product, int> _repo;
+        public ProductsAPIController(IRepository<Product, int> repo)
         {
-        }
-
-        IRepository<Product, int> _Repository;
-        ProductsAPIController(IRepository<Product, int> repository)
-        {
-            _Repository = repository;
+            _repo = repo;
         }
 
         // retrieving all the products
@@ -33,16 +27,16 @@ namespace Gameboard.Controllers
         public IHttpActionResult Get()
         {
             // test data JSON object
-            Product test = new Product
-            {
-                Id = 1,
-                Name = "Test JSON object",
-                Description = "Test description",
-                Company = "Mock Data",
-                AgeRestriction = 15,
-                Price = 10.5m
-            };
-            //var test = _Repository.Get();    
+            //Product test = new Product
+            //{
+            //    Id = 1,
+            //    Name = "Test JSON object",
+            //    Description = "Test description",
+            //    Company = "Mock Data",
+            //    AgeRestriction = 15,
+            //    Price = 10.5m
+            //};
+            var test = _repo.Get();    
             return this.Ok(test);
         }
     }

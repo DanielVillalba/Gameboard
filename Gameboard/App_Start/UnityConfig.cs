@@ -3,6 +3,9 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc5;
 using Gameboard.Models;
 using Gameboard.Repositories;
+using Microsoft.Practices.Unity;
+using System.Web.Http;
+using Unity.WebApi;
 
 namespace Gameboard
 {
@@ -17,10 +20,10 @@ namespace Gameboard
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            //Register the Repository in the Unity Container
             container.RegisterType<IRepository<Product, int>, ProductRepository>();
 
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+            DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
         }
     }
 }
