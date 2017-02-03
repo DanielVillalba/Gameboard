@@ -1,1 +1,17 @@
-﻿
+﻿@{
+    ViewBag.Title = "Gameboard Excersice";
+}
+
+<div id="bodyContainer" ng-app="ProductsApp" ng-controller="ProductsCtrl" ng-init="getProducts()">
+
+
+
+    <div ng-view></div> <!-- Inject our views-->
+
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/angular-route.js")
+    @Scripts.Render("~/Scripts/app/products-controller.js")
+}
