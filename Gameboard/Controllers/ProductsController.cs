@@ -20,8 +20,7 @@ namespace Gameboard.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var test = _repo.Get(1);
-            return Content(test.Name);
+            return View();
         }
 
     }
