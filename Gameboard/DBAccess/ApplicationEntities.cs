@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace Gameboard.DBAccess
@@ -85,13 +86,30 @@ namespace Gameboard.DBAccess
 
         private void retrieveData()
         {
-            // deserialize JSON directly from a file
-            string path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
-            using (StreamReader file = File.OpenText(path + @"\products.json"))
+            // implementing retry pattern
+            int NumberOfRetries = 3;
+            int DelayOnRetry = 1000;
+
+            for(int i = 1; i<=NumberOfRetries; i++)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                data = (List<Product>)serializer.Deserialize(file, typeof(List<Product>));
+                try
+                {
+                    // deserialize JSON directly from a file
+                    string path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+                    using (StreamReader file = File.OpenText(path + @"\products.json"))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        data = (List<Product>)serializer.Deserialize(file, typeof(List<Product>));
+                    }
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    if (i == NumberOfRetries) throw;
+                    Thread.Sleep(DelayOnRetry);
+                }
             }
+
         }
     }
 }
