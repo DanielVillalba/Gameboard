@@ -1037,6 +1037,8 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\AddNewProduct.html" />
     <Content Include="Templates\AllProducts.html" />
+    <Content Include="Templates\DeleteProduct.html" />
+    <Content Include="Templates\UpdateProduct.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

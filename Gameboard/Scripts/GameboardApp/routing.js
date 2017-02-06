@@ -10,8 +10,11 @@ mainApp.config(function ($routeProvider) {
         templateUrl: "/Templates/AddNewProduct.html",
         controller: "NewController"
     })
-    .when("/blue", {
-        templateUrl: "blue.htm"
+    .when("/updateProduct", {
+        templateUrl: "/Templates/UpdateProduct.html"
+    })
+    .when("/deleteProduct", {
+        templateUrl: "/Templates/DeleteProduct.html"
     });
 
 
