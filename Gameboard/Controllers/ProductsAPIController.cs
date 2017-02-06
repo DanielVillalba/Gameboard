@@ -26,18 +26,22 @@ namespace Gameboard.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult Get()
         {
-            // test data JSON object
-            //Product test = new Product
-            //{
-            //    Id = 1,
-            //    Name = "Test JSON object",
-            //    Description = "Test description",
-            //    Company = "Mock Data",
-            //    AgeRestriction = 15,
-            //    Price = 10.5m
-            //};
             var test = _repo.Get();    
             return this.Ok(test);
+        }
+
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult PostProduct(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _repo.Add(product);
+
+
+            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
         }
     }
 }
