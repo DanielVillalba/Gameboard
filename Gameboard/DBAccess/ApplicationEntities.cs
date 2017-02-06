@@ -1,6 +1,8 @@
 ﻿using Gameboard.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -12,38 +14,41 @@ namespace Gameboard.DBAccess
 
         public ApplicationEntities()
         {
-            createMockData();
+            //mockData();
+            retrieveData();
         }
 
         public IEnumerable<Product> CompleteProductsList()
         {
-            return testData;
+            return data;
         }
 
         public Product FindProduct(int id)
         {
-            return testData.FirstOrDefault(x => x.Id == id);
+            return data.FirstOrDefault(x => x.Id == id);
         }
 
         public void AddProduct(Product newProduct)
         {
-            testData.Add(newProduct);
+            data.Add(newProduct);
+            saveData(data);
         }
 
         public void RemoveProduct(int id)
         {
-            Product toDelete = testData.Find(x => x.Id == id);
+            Product toDelete = data.Find(x => x.Id == id);
             if ( toDelete != null)
             {
-                testData.Remove(toDelete);
+                data.Remove(toDelete);
+                saveData(data);
             }
         }
 
         // mock data, this needs to be replaced by JSON file at some point
-        private List<Product> testData = new List<Product>();
-        private void createMockData()
+        private List<Product> data = new List<Product>();
+        private void mockData()
         {
-            testData.Add(
+            data.Add(
                 new Product
                 {
                     Id = 1,
@@ -55,7 +60,7 @@ namespace Gameboard.DBAccess
                 }
             );
 
-            testData.Add(
+            data.Add(
                 new Product
                 {
                     Id = 2,
@@ -66,6 +71,27 @@ namespace Gameboard.DBAccess
                     Price = 210.50m
                 }
             );
+        }
+        
+        private void saveData(List<Product> dataToStore)
+        {
+            string path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            using (StreamWriter file = File.CreateText(path + @"\products.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, dataToStore);
+            }
+        }
+
+        private void retrieveData()
+        {
+            // deserialize JSON directly from a file
+            string path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            using (StreamReader file = File.OpenText(path + @"\products.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                data = (List<Product>)serializer.Deserialize(file, typeof(List<Product>));
+            }
         }
     }
 }
