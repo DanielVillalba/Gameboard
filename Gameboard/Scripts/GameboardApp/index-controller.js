@@ -16,6 +16,14 @@ mainApp.controller('IndexController', function ($scope, APIService) {
         })
     }
 
+    //test
+    $scope.edit = function (id) {
+        console.log("Edit " + id);
+    }
+    $scope.delete = function (id) {
+        console.log("Delete " + id);
+    }
+
 });
 
 
