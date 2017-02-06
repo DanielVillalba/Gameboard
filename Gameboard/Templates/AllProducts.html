@@ -20,8 +20,8 @@
                     <td>{{prod.Company}}</td>
                     <td>{{prod.Price}}</td>
                     <td>
-                        <a href="#" ng-click="edit(prod.Id)">Edit</a>
-                        <a href="#" ng-click="delete(prod.Id)">Delete</a>
+                        <a href="#" ng-click="edit(prod.Id, prod.Name, prod.Description, prod.AgeRestriction, prod.Company, prod.Price)">Edit</a>
+                        <a href="#!/deleteProduct" ng-click="delete(prod.Id, prod.Name, prod.Description, prod.AgeRestriction, prod.Company, prod.Price)">Delete</a>
                     </td>
                 </tr>
             </tbody>

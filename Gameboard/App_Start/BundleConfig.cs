@@ -15,6 +15,7 @@ namespace Gameboard
                         "~/Scripts/GameboardApp/index-controller.js",
                         "~/Scripts/GameboardApp/routing.js",
                         "~/Scripts/GameboardApp/new-controller.js",
+                        "~/Scripts/GameboardApp/delete-controller.js",
                         "~/Scripts/GameboardApp/services.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

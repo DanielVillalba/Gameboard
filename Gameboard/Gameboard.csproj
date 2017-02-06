@@ -283,6 +283,7 @@
     <Content Include="Scripts\angular-block-ui.js.map" />
     <Content Include="Content\angular-block-ui.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\GameboardApp\delete-controller.js" />
     <Content Include="Scripts\GameboardApp\new-controller.js" />
     <Content Include="Scripts\GameboardApp\routing.js" />
     <Content Include="Scripts\GameboardApp\index-controller.js" />

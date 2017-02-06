@@ -37,11 +37,24 @@ namespace Gameboard.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             _repo.Add(product);
-
-
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+        }
+
+
+        // DELETE: api/Products1/5
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult DeleteProduct(int id)
+        {
+            Product product = _repo.Get().First(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _repo.Remove(product);
+
+            return Ok(product);
         }
     }
 }

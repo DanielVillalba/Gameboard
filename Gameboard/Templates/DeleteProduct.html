@@ -1,3 +1,61 @@
-﻿    <div>
-        This needs to provide the DELETE feature
-    </div>
+﻿<!-- provides the view to add a new product-->
+
+<div class="container" ng-controller="DeleteController">
+
+    <br />
+    <br />
+
+    <h5 class="display-1"> {{greeting}} </h5>
+    <br />
+
+
+    <form name="newProductForm" class="form-group">
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Id</label>
+            <div class="col-10">
+                <label class="form-control" >{{product.Id}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Name</label>
+            <div class="col-10">
+                <label class="form-control" >{{product.Name}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Description</label>
+            <div class="col-10">
+                <label  class="form-control">{{product.Description}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Age Restriction</label>
+            <div class="col-10">
+                <label  class="form-control" >{{product.AgeRestriction}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Company</label>
+            <div class="col-10">
+                <label class="form-control" >{{product.Company}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Price</label>
+            <div class="col-10">
+                <label class="form-control" >{{product.Price}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <a class="btn btn-primary btn-lg" href="#!/" ng-click='deleteProduct()'>Confirm Delete</a>
+        </div>
+
+    </form>
+
+</div>
