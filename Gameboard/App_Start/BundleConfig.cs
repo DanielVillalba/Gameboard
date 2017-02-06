@@ -13,7 +13,9 @@ namespace Gameboard
                         "~/Scripts/angular-route.js",
                         "~/Scripts/GameboardApp/app.js",
                         "~/Scripts/GameboardApp/index-controller.js",
-                        "~/Scripts/GameboardApp/routing.js"));
+                        "~/Scripts/GameboardApp/routing.js",
+                        "~/Scripts/GameboardApp/new-controller.js",
+                        "~/Scripts/GameboardApp/services.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

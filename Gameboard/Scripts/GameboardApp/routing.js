@@ -7,7 +7,8 @@ mainApp.config(function ($routeProvider) {
         controller: "IndexController"
     })
     .when("/newTest", {
-        templateUrl: "/Templates/AddNewProduct.html"
+        templateUrl: "/Templates/AddNewProduct.html",
+        controller: "NewController"
     })
     .when("/blue", {
         templateUrl: "blue.htm"

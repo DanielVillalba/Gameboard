@@ -18,11 +18,5 @@ mainApp.controller('IndexController', function ($scope, APIService) {
 
 });
 
-app.service('APIService', function ($http)
-{
-    this.getProducts = function ()
-    {
-        return $http.get("../api/ProductsAPI")
-    }
-});
+
 
