@@ -90,7 +90,9 @@ namespace Gameboard.DBAccess
             int NumberOfRetries = 3;
             int DelayOnRetry = 1000;
 
-            for(int i = 1; i<=NumberOfRetries; i++)
+            Thread.Sleep(200);  // allow the previous operation with the file to be completed
+
+            for (int i = 1; i<=NumberOfRetries; i++)
             {
                 try
                 {
