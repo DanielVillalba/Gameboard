@@ -56,5 +56,27 @@ namespace Gameboard.Controllers
 
             return Ok(product);
         }
+
+        // PUT: api/Products1/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutProduct(int id, Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != product.Id)
+            {
+                return BadRequest();
+            }
+
+            // in this case we are removing the old product object and replacing it with the new one
+            _repo.Remove(product);
+            _repo.Add(product);
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
     }
 }
