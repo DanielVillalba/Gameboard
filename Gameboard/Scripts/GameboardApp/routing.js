@@ -14,7 +14,8 @@ mainApp.config(function ($routeProvider) {
         templateUrl: "/Templates/UpdateProduct.html"
     })
     .when("/deleteProduct", {
-        templateUrl: "/Templates/DeleteProduct.html"
+        templateUrl: "/Templates/DeleteProduct.html",
+        controller: "DeleteController"
     });
 
 
