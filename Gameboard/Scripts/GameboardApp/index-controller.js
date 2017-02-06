@@ -2,7 +2,6 @@
 
 mainApp.controller('IndexController', function ($scope, APIService) {
     $scope.greeting = 'Hola!';
-
     getProducts();
 
     function getProducts()

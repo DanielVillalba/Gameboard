@@ -10,8 +10,10 @@ namespace Gameboard
         {
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
                         "~/Scripts/angular.js",
+                        "~/Scripts/angular-route.js",
                         "~/Scripts/GameboardApp/app.js",
-                        "~/Scripts/GameboardApp/index-controller.js"));
+                        "~/Scripts/GameboardApp/index-controller.js",
+                        "~/Scripts/GameboardApp/routing.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

@@ -273,6 +273,7 @@
     <Content Include="Scripts\angular-block-ui.js.map" />
     <Content Include="Content\angular-block-ui.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\GameboardApp\routing.js" />
     <Content Include="Scripts\GameboardApp\index-controller.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -1022,6 +1023,8 @@
     <Content Include="Scripts\ui-bootstrap-tpls-0.4.0.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.4.0.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Templates\AddNewProduct.html" />
+    <Content Include="Templates\AllProducts.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

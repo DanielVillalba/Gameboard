@@ -22,6 +22,5 @@ namespace Gameboard.Controllers
         {
             return View();
         }
-
     }
 }
