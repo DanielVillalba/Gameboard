@@ -1,3 +1,66 @@
-﻿    <div>
-        This needs to provide the update feature
-    </div>
+﻿<!-- provides the view to add a new product-->
+
+<div class="container" ng-controller="UpdateController">
+
+    <br />
+    <br />
+
+    <h5 class="display-1"> {{greeting}} </h5>
+    <br />
+
+
+    <form name="updateProductForm" class="form-group">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Id</label>
+            <div class="col-10">
+                <input name="newId" class="form-control" type="text" ng-model="product.Id" disabled>
+                <!--<span ng-show="updateProductForm.newId.$touched && updateProductForm.newId.$invalid">Product Id is required.</span>-->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Name</label>
+            <div class="col-10">
+                <input name="newName" class="form-control" type="text" ng-model="product.Name" ng-maxlength="50" required>
+                <span ng-show="updateProductForm.newName.$touched && updateProductForm.newName.$invalid">Product's name is required and max length should be 50 chars</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Description</label>
+            <div class="col-10">
+                <input name="newDescription" class="form-control" type="text" ng-model="product.Description" ng-maxlength="100">
+                <span ng-show="updateProductForm.newDescription.$touched && updateProductForm.newDescription.$invalid">Product's description max length should be 100 chars</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Age Restriction</label>
+            <div class="col-10">
+                <input name="newAge" class="form-control" type="text" ng-model="product.AgeRestriction">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Company</label>
+            <div class="col-10">
+                <input name="newCompany" class="form-control" type="text" ng-model="product.Company" ng-maxlength="50" required>
+                <span ng-show="updateProductForm.newCompany.$touched && updateProductForm.newCompany.$invalid">Product's company is required and max length should be 50</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Price</label>
+            <div class="col-10">
+                <input name="newPrice" class="form-control" type="text" ng-model="product.Price" required>
+                <span ng-show="updateProductForm.newPrice.$touched && newProductForm.newPrice.$invalid">Product's price is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <a class="btn btn-primary btn-lg" href="#!/" ng-click='updateProduct()'>Save Data</a>
+        </div>
+
+    </form>
+
+</div>

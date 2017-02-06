@@ -25,6 +25,23 @@ app.service('APIService', function ($http) {
     this.deleteProduct = function (newData) {
         $http.delete("../api/ProductsAPI/"+ newData)
     }
+
+    this.updateProduct = function(newData) {
+        $http({
+            url: "../api/ProductsAPI/" + newData.Id,
+            dataType: 'json',
+            method: 'PUT',
+            data: newData,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log('something went wrong !');
+        })
+    }
 });
 
 // service used to share a product object among diff controllers, basically to update or delete ops
